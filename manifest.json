@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "CodeMirror",
+  "description": "Enables CodeMirror Control use.",
+  "version": "1.0",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://github.com/*"
+      ],
+      "css": ["CodeMirror-master/lib/codemirror.css", "CodeMirror-master/theme/base16-dark.css"],
+      "js": [
+        "jquery-1.11.3.min.js",
+        "CodeMirror-master/lib/codemirror.js",
+        "CodeMirror-master/addon/edit/matchbrackets.js",
+        "CodeMirror-master/mode/htmlmixed/htmlmixed.js",
+        "CodeMirror-master/mode/xml/xml.js",
+        "CodeMirror-master/mode/javascript/javascript.js",
+        "CodeMirror-master/mode/css/css.js",
+        "CodeMirror-master/mode/clike/clike.js",
+        "CodeMirror.js"
+      ]
+    }
+  ]
+}
