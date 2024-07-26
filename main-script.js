@@ -56,8 +56,23 @@ function initOrUpdateCodeMirror() {
                 lineNumbersDiv.style.display = 'block';
             }
         }
-    } else {
-        console.log("Element(s) not found or not ready yet.");
+    }
+}
+
+// Function to handle the "Blame" button click
+function handleBlameButtonClick() {
+    if (editor) {
+        // Destroy the CodeMirror instance
+        editor.toTextArea();
+        editor = null;
+    }
+    const textarea = document.getElementById("read-only-cursor-text-area");
+    if (textarea) {
+        textarea.style.display = 'block';
+    }
+    const lineNumbersDiv = document.querySelector('.react-line-numbers-no-virtualization');
+    if (lineNumbersDiv) {
+        lineNumbersDiv.style.display = 'block';
     }
 }
 
@@ -79,3 +94,9 @@ observer.observe(document.body, {
     subtree: true,
     characterData: true
 });
+
+// Add event listener to the "Blame" button
+const blameButton = document.querySelector('button[aria-current="true"]');
+if (blameButton) {
+    blameButton.addEventListener('click', handleBlameButtonClick);
+}

@@ -14,7 +14,7 @@
       "js": [
         "codemirror-lib.js",
         "javascript/javascript.js",
-        "CodeMirror.js"
+        "main-script.js"
       ]
     }
   ]
