@@ -1,0 +1,7 @@
+"CodeMirror-master/mode/clike/clike.js",
+"CodeMirror-master/mode/css/css.js",
+"CodeMirror-master/mode/xml/xml.js",
+"jquery-1.11.3.min.js",
+"CodeMirror-master/addon/edit/matchbrackets.js",
+"CodeMirror-master/mode/htmlmixed/htmlmixed.js",
+"CodeMirror-master/lib/codemirror.css",
