@@ -26,7 +26,7 @@ function initOrUpdateCodeMirror() {
                 if (!editor) {
                     // Create CodeMirror instance if it doesn't exist
                     const themeCSS = document.createElement("link");
-                    themeCSS.href = chrome.runtime.getURL("CodeMirror-master/theme/base16-dark.css");
+                    themeCSS.href = chrome.runtime.getURL("base16-dark.css");
                     themeCSS.rel = "stylesheet";
                     themeCSS.type = "text/css";
                     document.head.appendChild(themeCSS);

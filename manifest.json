@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "CodeMirror",
-  "description": "Enables CodeMirror Control use.",
+  "name": "Zoomba Highlighter",
+  "description": "Zoomba Syntax Highlighter for github",
   "version": "1.0",
   "content_scripts": [
     {
