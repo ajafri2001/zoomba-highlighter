@@ -9,9 +9,8 @@ function deleteSpecificDivs() {
     const cursorsDivs = document.querySelectorAll('.CodeMirror-cursors');
     const gutterDivs = document.querySelectorAll('.CodeMirror-gutters');
     const gutterMarker = document.querySelectorAll('.CodeMirror-gutter-wrapper');
-    // Select all <pre> elements on the page
     const preElements = document.querySelectorAll('pre');
-    // Loop through each <pre> element
+    // Looping through each <pre> element
     preElements.forEach(pre => {
         // Set the styles
         pre.style.backgroundColor = 'white';
@@ -38,7 +37,7 @@ function replaceWithTextarea(observer) {
         const textarea = document.createElement('textarea');
         textarea.value = textContent;
         textarea.style.width = '100%';
-        textarea.style.height = '2000px'; // Adjust height as needed
+        textarea.style.height = '2000px'; // Hardcoded height for now
         const topMostDiv = codeElement.closest('.gl-flex.blob-viewer');
         if (topMostDiv) {
             const parentDiv = topMostDiv.parentNode;
@@ -47,7 +46,6 @@ function replaceWithTextarea(observer) {
             containerDiv.appendChild(textarea);
             parentDiv.replaceChild(containerDiv, topMostDiv);
 
-            // Ensure the CodeMirror CSS is loaded only once
             const themeCSS = document.createElement('link');
             themeCSS.href = chrome.runtime.getURL('themes/xq-light.css');
             themeCSS.rel = 'stylesheet';
@@ -59,7 +57,7 @@ function replaceWithTextarea(observer) {
             const editor = CodeMirror.fromTextArea(textarea, {
                 lineNumbers: true,
                 matchBrackets: true,
-                mode: "text/x-ZoomBA", // Adjust mode according to your language
+                mode: "text/x-ZoomBA",
                 indentUnit: 4,
                 theme: 'xq-light',
                 readOnly: true

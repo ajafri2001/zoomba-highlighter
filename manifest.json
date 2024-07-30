@@ -15,8 +15,8 @@
         "themes/base16-dark.css"
       ],
       "js": [
-        "codemirror-lib.js",
-        "zoomba.js",
+        "libraries/codemirror-lib.js",
+        "libraries/zoomba.js",
         "github.js"
       ]
     },
@@ -28,8 +28,8 @@
         "themes/xq-light.css"
       ],
       "js": [
-        "codemirror-lib.js",
-        "zoomba.js",
+        "libraries/codemirror-lib.js",
+        "libraries/zoomba.js",
         "gitlab.js"
       ]
     }
