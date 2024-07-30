@@ -2,15 +2,15 @@
 function shouldExecute() {
     return window.location.href.includes('gitlab') && window.location.href.includes('.zm');
 }
-
 // Add this function to delete specific divs
 function deleteSpecificDivs() {
     const measureDivs = document.querySelectorAll('.CodeMirror-measure');
     const cursorsDivs = document.querySelectorAll('.CodeMirror-cursors');
     const gutterDivs = document.querySelectorAll('.CodeMirror-gutters');
     const gutterMarker = document.querySelectorAll('.CodeMirror-gutter-wrapper');
+    // Selecting all <pre> elements on the page
     const preElements = document.querySelectorAll('pre');
-    // Looping through each <pre> element
+    // Looing through each <pre> element
     preElements.forEach(pre => {
         // Set the styles
         pre.style.backgroundColor = 'white';
