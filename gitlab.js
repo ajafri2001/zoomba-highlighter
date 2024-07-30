@@ -2,7 +2,7 @@
 function shouldExecute() {
     return window.location.href.includes('gitlab') && window.location.href.includes('.zm');
 }
-// Add this function to delete specific divs
+//Deleting specific divs
 function deleteSpecificDivs() {
     const measureDivs = document.querySelectorAll('.CodeMirror-measure');
     const cursorsDivs = document.querySelectorAll('.CodeMirror-cursors');
@@ -12,7 +12,6 @@ function deleteSpecificDivs() {
     const preElements = document.querySelectorAll('pre');
     // Looing through each <pre> element
     preElements.forEach(pre => {
-        // Set the styles
         pre.style.backgroundColor = 'white';
         pre.style.border = 'none';
         pre.style.padding = '0';
@@ -22,8 +21,6 @@ function deleteSpecificDivs() {
     gutterMarker.forEach(div => div.remove());
     gutterDivs.forEach(div => div.remove());
 }
-
-// Modify the replaceWithTextarea function to include the deletion of divs
 function replaceWithTextarea(observer) {
     if (!shouldExecute()) {
         console.log('URL does not match criteria. Script will not execute.');
@@ -66,7 +63,7 @@ function replaceWithTextarea(observer) {
                 editor.save();
             });
 
-            // Call the function to delete specific divs
+            // Calling the function to delete specific divs
             deleteSpecificDivs();
 
             // Disconnect the observer
@@ -76,6 +73,7 @@ function replaceWithTextarea(observer) {
             console.log('Top-most div not found.');
         }
     } else {
+        // Used to debug
         console.log('Code element with the specified data-testid not found. Continuing to observe...');
     }
 }
@@ -102,7 +100,7 @@ if (shouldExecute()) {
     console.log('URL does not match criteria. Script will not execute.');
 }
 
-// Add an event listener to run the script again on click
+// Add an event listener to run the script again on any click
 document.addEventListener('click', () => {
     if (shouldExecute()) {
         replaceWithTextarea(observer);
