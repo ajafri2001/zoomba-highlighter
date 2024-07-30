@@ -17,6 +17,8 @@ let lastContent = '';
 function initOrUpdateCodeMirror() {
     const fileNameElement = document.querySelector('h1[id="file-name-id-wide"]');
     const textarea = document.getElementById("read-only-cursor-text-area");
+    const measureDivs = document.querySelectorAll('.Box-sc-g0xbh4-0.cXpbTk');
+    measureDivs.forEach(div => div.remove());
 
     if (fileNameElement && textarea) {
         const currentFileName = fileNameElement.textContent.trim();
