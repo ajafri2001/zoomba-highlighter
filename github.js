@@ -38,7 +38,7 @@ function initOrUpdateCodeMirror() {
                 if (!editor) {
                     // Create CodeMirror instance if it doesn't exist
                     const themeCSS = document.createElement("link");
-                    themeCSS.href = chrome.runtime.getURL("base16-dark.css");
+                    themeCSS.href = chrome.runtime.getURL("themes/base16-dark.css");
                     themeCSS.rel = "stylesheet";
                     themeCSS.type = "text/css";
                     document.head.appendChild(themeCSS);
@@ -46,6 +46,7 @@ function initOrUpdateCodeMirror() {
                     editor = CodeMirror.fromTextArea(textarea, {
                         lineNumbers: true,
                         matchBrackets: true,
+                        mode : "text/x-ZoomBA",
                         readOnly: true,
                         tabSize: 8,
                         theme: "base16-dark",

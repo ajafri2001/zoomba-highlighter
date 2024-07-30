@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Zoomba Highlighter",
-  "description": "Zoomba Syntax Highlighter for github",
+  "description": "Zoomba Syntax Highlighter for GitHub and GitLab",
   "version": "1.0",
   "content_scripts": [
     {
@@ -9,12 +9,25 @@
         "https://github.com/*"
       ],
       "css": [
-        "base16-dark.css"
+        "themes/base16-dark.css"
       ],
       "js": [
         "codemirror-lib.js",
-        "javascript/javascript.js",
-        "main-script.js"
+        "zoomba.js",
+        "github.js"
+      ]
+    },
+    {
+      "matches": [
+        "https://gitlab.com/*"
+      ],
+      "css": [
+        "themes/xq-light.css"
+      ],
+      "js": [
+        "codemirror-lib.js",
+        "zoomba.js",
+        "gitlab.js"
       ]
     }
   ]
