@@ -46,7 +46,7 @@ function initOrUpdateCodeMirror() {
                     editor = CodeMirror.fromTextArea(textarea, {
                         lineNumbers: true,
                         matchBrackets: true,
-                        mode : "text/x-ZoomBA",
+                        mode: "text/x-ZoomBA",
                         readOnly: true,
                         tabSize: 8,
                         theme: "base16-dark",
