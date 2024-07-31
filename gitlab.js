@@ -1,8 +1,8 @@
-// Function to check if the URL contains both "gitlab" and ".zm"
+// Only execute if the URL contains both "gitlab" and ".zm"
 function shouldExecute() {
     return window.location.href.includes('gitlab') && window.location.href.includes('.zm');
 }
-//Deleting specific divs
+//Deleting specific divs to improve the UI
 function deleteSpecificDivs() {
     const measureDivs = document.querySelectorAll('.CodeMirror-measure');
     const cursorsDivs = document.querySelectorAll('.CodeMirror-cursors');
@@ -63,7 +63,7 @@ function replaceWithTextarea(observer) {
                 editor.save();
             });
 
-            // Calling the function to delete specific divs
+            // Calling the function to delete specific divs after codemirro has been initialized
             deleteSpecificDivs();
 
             // Disconnect the observer
@@ -78,7 +78,7 @@ function replaceWithTextarea(observer) {
     }
 }
 
-// Create a MutationObserver instance to watch for changes in the DOM
+// Create a MutationObserver instance to watch for dynamically loaded content
 const observer = new MutationObserver((mutationsList) => {
     for (const mutation of mutationsList) {
         if (mutation.addedNodes.length > 0) {
