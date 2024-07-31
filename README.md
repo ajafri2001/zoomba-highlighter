@@ -6,6 +6,8 @@ THIS CODE DOES NOT YET PROVIDE AN EXACT COPY OF THE DEFAULT FONTS PROVIDED BY GI
 
 I have aimed to make the entire project as simple as possible. The code is intentionally left open-ended to accommodate future changes, so any additions should (hopefully) not require refactoring.
 
+Sometimes if you can't see codemirror being initialized either reload, left click or reload from the pinned extension, either one of them should work, WILL FIX THIS LATER
+
 ### How to Run:
 
 1.  Clone the repository.
@@ -14,7 +16,10 @@ I have aimed to make the entire project as simple as possible. The code is inten
 4.  Enable Developer Mode (little blue toggle at the top-right corner)
 5.  From the new dropdown menu, click "Load unpacked."
 6.  Select the folder you cloned, navigate inside it, and click "Select Folder" (Chrome looks at your manifest.json file first).
-7.  You should now see syntax highlighting for your .zm files.
+7.  Click on extensions dropdown on the top right corner, pin it.
+8.  Go to either github.com / gitlab.com
+9.  Click on the ZoomBa extension, select "This can read and change site data" and click on github/gitlab
+10. You should now see syntax highlighting for your .zm files.
 
 ### How It Works:
 
@@ -27,7 +32,7 @@ I destroy the instance everytime a user clicks on files other than those that en
 why not just update the text you ask? It was leading to a 1000 bugs so I just started reinitializing it instead. Plus the extension size non-compressed is 2.6 MB, which only executes if 
 the user changes files. So non-existant performance issue for all practical purposes.
  
-### Structure of the Browser Extension:
+### Structure of the Browser Extension (outdated):
 
  __main-script.js__, Contains the main logic of the extension. It selectively looks for files ending in .zm and applies CodeMirror's styling to them.
 
@@ -36,3 +41,10 @@ the user changes files. So non-existant performance issue for all practical purp
  __base16-dark.css__, Contains the styling for the textarea block. This file can also be used to change the colors of the syntax highlighter.
 
  __manifest.json__, This is the entry point of the extension. Chrome looks for this file first, and anything specified in it is loaded into the browser. It's fairly intuitive if you read the JSON.
+
+
+
+ ## Bug policy
+
+ I will work on the bugs one by one. if you have an urgent need for a bug to be fixed, Create an issue and I will work on it ASAP. 
+
