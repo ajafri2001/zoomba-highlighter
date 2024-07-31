@@ -14,7 +14,8 @@
         "https://github.com/*"
       ],
       "css": [
-        "themes/base16-dark.css"
+        "themes/base16-dark.css",
+        "themes/xq-light.css"
       ],
       "js": [
         "libraries/codemirror-lib.js",
@@ -27,7 +28,8 @@
         "https://gitlab.com/*"
       ],
       "css": [
-        "themes/xq-light.css"
+        "themes/xq-light.css",
+        "themes/base16-dark.css"
       ],
       "js": [
         "libraries/codemirror-lib.js",

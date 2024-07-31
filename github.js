@@ -10,13 +10,16 @@ text you ask? It was leading to a 1000 bugs so I just started reinitializing it 
 the user changes files. So non-existant performance issue for all practical purposes. 
 */
 
+
 let editor;
 let lastFileName = '';
 let lastContent = '';
 
+
 function initOrUpdateCodeMirror() {
     const fileNameElement = document.querySelector('h1[id="file-name-id-wide"]');
     const textarea = document.getElementById("read-only-cursor-text-area");
+    
 
     if (fileNameElement && textarea) {
         const currentFileName = fileNameElement.textContent.trim();
@@ -34,23 +37,45 @@ function initOrUpdateCodeMirror() {
                 if (lineNumbersDiv) {
                     lineNumbersDiv.style.display = 'none';
                 }
-
                 if (!editor) {
-                    // Create CodeMirror instance if it doesn't exist
-                    const themeCSS = document.createElement("link");
-                    themeCSS.href = chrome.runtime.getURL("themes/base16-dark.css");
-                    themeCSS.rel = "stylesheet";
-                    themeCSS.type = "text/css";
-                    document.head.appendChild(themeCSS);
+                    let mediaQueryObj = window.matchMedia('(prefers-color-scheme: light)');
+                    let isDarkMode = mediaQueryObj.matches;
+                    console.log(isDarkMode);
 
-                    editor = CodeMirror.fromTextArea(textarea, {
-                        lineNumbers: true,
-                        matchBrackets: true,
-                        mode: "text/x-ZoomBA",
-                        readOnly: true,
-                        tabSize: 8,
-                        theme: "base16-dark",
-                    });
+                    if (isDarkMode == true){ 
+                        const themeCSS = document.createElement("link");
+                        themeCSS.href = chrome.runtime.getURL("themes/base16-dark.css");
+                        themeCSS.rel = "stylesheet";
+                        themeCSS.type = "text/css";
+                        document.head.appendChild(themeCSS);
+
+                        editor = CodeMirror.fromTextArea(textarea, {
+                            lineNumbers: true,
+                            matchBrackets: true,
+                            mode: "text/x-ZoomBA",
+                            readOnly: true,
+                            tabSize: 8,
+                            theme: "base16-dark",
+                        });
+                    }
+                    else{
+                        const themeCSS = document.createElement("link");
+                        themeCSS.href = chrome.runtime.getURL("themes/xq-light.css");
+                        themeCSS.rel = "stylesheet";
+                        themeCSS.type = "text/css";
+                        document.head.appendChild(themeCSS);
+
+                        editor = CodeMirror.fromTextArea(textarea, {
+                            lineNumbers: true,
+                            matchBrackets: true,
+                            mode: "text/x-ZoomBA",
+                            readOnly: true,
+                            tabSize: 8,
+                            theme: "xq-light",
+                        });
+                    }
+
+                    
                     // const measureDivs = document.querySelectorAll('.Box-sc-g0xbh4-0.cXpbTk');
                     // measureDivs.forEach(div => div.remove());
                 } else {
@@ -91,7 +116,7 @@ function handleBlameButtonClick() {
     }
 }
 
-// Initial setup
+
 initOrUpdateCodeMirror();
 
 // Observe changes in the document
