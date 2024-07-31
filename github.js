@@ -38,11 +38,10 @@ function initOrUpdateCodeMirror() {
                     lineNumbersDiv.style.display = 'none';
                 }
                 if (!editor) {
-                    let mediaQueryObj = window.matchMedia('(prefers-color-scheme: light)');
-                    let isDarkMode = mediaQueryObj.matches;
-                    console.log(isDarkMode);
+                    const theme = document.documentElement.getAttribute('data-color-mode');
+                    console.log(theme);
 
-                    if (isDarkMode == true){ 
+                    if (theme == 'dark'){ 
                         const themeCSS = document.createElement("link");
                         themeCSS.href = chrome.runtime.getURL("themes/base16-dark.css");
                         themeCSS.rel = "stylesheet";
