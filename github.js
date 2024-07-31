@@ -19,7 +19,7 @@ let lastContent = '';
 function initOrUpdateCodeMirror() {
     const fileNameElement = document.querySelector('h1[id="file-name-id-wide"]');
     const textarea = document.getElementById("read-only-cursor-text-area");
-    
+
 
     if (fileNameElement && textarea) {
         const currentFileName = fileNameElement.textContent.trim();
@@ -41,7 +41,7 @@ function initOrUpdateCodeMirror() {
                     const theme = document.documentElement.getAttribute('data-color-mode');
                     console.log(theme);
 
-                    if (theme == 'dark'){ 
+                    if (theme == 'dark') {
                         const themeCSS = document.createElement("link");
                         themeCSS.href = chrome.runtime.getURL("themes/base16-dark.css");
                         themeCSS.rel = "stylesheet";
@@ -57,7 +57,7 @@ function initOrUpdateCodeMirror() {
                             theme: "base16-dark",
                         });
                     }
-                    else{
+                    else {
                         const themeCSS = document.createElement("link");
                         themeCSS.href = chrome.runtime.getURL("themes/xq-light.css");
                         themeCSS.rel = "stylesheet";
@@ -74,7 +74,7 @@ function initOrUpdateCodeMirror() {
                         });
                     }
 
-                    
+
                     // const measureDivs = document.querySelectorAll('.Box-sc-g0xbh4-0.cXpbTk');
                     // measureDivs.forEach(div => div.remove());
                 } else {
