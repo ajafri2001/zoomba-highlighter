@@ -9,13 +9,6 @@ function deleteSpecificDivs() {
     const gutterDivs = document.querySelectorAll('.CodeMirror-gutters');
     const gutterMarker = document.querySelectorAll('.CodeMirror-gutter-wrapper');
     // Selecting all <pre> elements on the page
-    const preElements = document.querySelectorAll('pre');
-    // Looing through each <pre> element
-    preElements.forEach(pre => {
-        pre.style.backgroundColor = 'white';
-        pre.style.border = 'none';
-        pre.style.padding = '0';
-    });
     measureDivs.forEach(div => div.remove());
     cursorsDivs.forEach(div => div.remove());
     gutterMarker.forEach(div => div.remove());
@@ -43,25 +36,61 @@ function replaceWithTextarea(observer) {
             containerDiv.appendChild(textarea);
             parentDiv.replaceChild(containerDiv, topMostDiv);
 
-            const themeCSS = document.createElement('link');
-            themeCSS.href = chrome.runtime.getURL('themes/xq-light.css');
-            themeCSS.rel = 'stylesheet';
-            themeCSS.type = 'text/css';
-            themeCSS.id = 'codeMirrorCSS';
-            document.head.appendChild(themeCSS);
+            const htmlElement = document.documentElement;
 
-            // Initialize CodeMirror on the textarea
-            const editor = CodeMirror.fromTextArea(textarea, {
-                lineNumbers: true,
-                matchBrackets: true,
-                mode: "text/x-ZoomBA",
-                indentUnit: 4,
-                theme: 'xq-light',
-                readOnly: true
-            });
-            editor.on('blur', function () {
-                editor.save();
-            });
+            if (htmlElement.classList.contains('gl-light')) {
+
+                const themeCSS = document.createElement('link');
+                themeCSS.href = chrome.runtime.getURL('themes/xq-light.css');
+                themeCSS.rel = 'stylesheet';
+                themeCSS.type = 'text/css';
+                themeCSS.id = 'codeMirrorCSS';
+                document.head.appendChild(themeCSS);
+
+                // Initialize CodeMirror on the textarea
+                const editor = CodeMirror.fromTextArea(textarea, {
+                    lineNumbers: true,
+                    matchBrackets: true,
+                    mode: "text/x-ZoomBA",
+                    indentUnit: 4,
+                    theme: 'xq-light',
+                    readOnly: true
+                });
+                editor.on('blur', function () {
+                    editor.save();
+                });
+                const preElements = document.querySelectorAll('pre');
+                // Looing through each <pre> element
+                preElements.forEach(pre => {
+                    pre.style.backgroundColor = 'white';
+                    pre.style.border = 'none';
+                    pre.style.padding = '0';
+                });
+            }
+
+            else {
+                const themeCSS = document.createElement('link');
+                themeCSS.href = chrome.runtime.getURL('themes/base16-dark.css');
+                themeCSS.rel = 'stylesheet';
+                themeCSS.type = 'text/css';
+                themeCSS.id = 'codeMirrorCSS';
+                document.head.appendChild(themeCSS);
+
+                // Initialize CodeMirror on the textarea
+                const editor = CodeMirror.fromTextArea(textarea, {
+                    lineNumbers: true,
+                    matchBrackets: true,
+                    mode: "text/x-ZoomBA",
+                    indentUnit: 4,
+                    theme: 'base16-dark',
+                    readOnly: true
+                });
+                editor.on('blur', function () {
+                    editor.save();
+                });
+                
+            }
+
 
             // Calling the function to delete specific divs after codemirro has been initialized
             deleteSpecificDivs();
